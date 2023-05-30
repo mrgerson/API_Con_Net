@@ -7,6 +7,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();  //ayuda a generar la documentaciòn del proyecto
 
+
+//inyeccion de dependencias 
+builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
+//builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -22,7 +27,7 @@ app.UseAuthorization();
 
 //app.UseWelcomePage();
 
-app.UseTimeMiddleware();
+//app.UseTimeMiddleware();
 
 app.MapControllers();
 
