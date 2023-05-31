@@ -1,3 +1,4 @@
+using proyectoef;
 using proyectoef.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,9 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();  //ayuda a generar la documentaciòn del proyecto
+
+//creando y conectando en la base de datos
+builder.Services.AddSqlServer<TareasContext>(builder.Configuration.GetConnectionString("cnTareas"));
 
 
 //inyeccion de dependencias 
