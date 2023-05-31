@@ -1,3 +1,5 @@
+using proyectoef.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -11,6 +13,10 @@ builder.Services.AddSwaggerGen();  //ayuda a generar la documentaciòn del proye
 //inyeccion de dependencias 
 builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
 //builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());
+
+//servicios de categorias y tareas para la inyecciòn de dependencias
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<ITareasService, TareasService>();
 
 var app = builder.Build();
 
